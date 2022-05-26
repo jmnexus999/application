@@ -1,0 +1,38 @@
+{{!-- administrador --}}
+<div class="container p-4">
+    <div class="row">
+        <div class="col-md-8 mx-auto">
+            <div class="card text-center">
+                <div class="card-header text-center">
+                    <b class="fs-3">Menu {{user.tipo}}</b>
+                </div>
+                <div class="card-body text-center">
+                    <div class="from control">
+                        <label for="">Seleccionar opcion</label>
+                    </div>
+                    <hr>
+                    <div>
+
+                        <a href="/rusuarios" class="btn btn-primary m-2">
+                            <i class="bi bi-person-plus"></i>
+                            Registar usuarios
+                        </a>
+                        <a href="/listauser" class="btn btn-secondary m-2">
+                            <i class="bi bi-search"></i>
+                            Consultar usuarios
+                        </a>
+                        <a href="/consultaad" class="btn btn-info m-2">
+                            <i class="bi bi-caret-right"></i>
+                            <i class="bi bi-journal-check"></i>
+                            Consulta Ventas
+                        </a>
+                        <a href="/admincp" class="btn btn-warning m-2">
+                            <i class="bi bi-key"></i>
+                            Cambiar contraseña
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

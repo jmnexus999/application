@@ -1,0 +1,155 @@
+body {
+  background: #bdc3c7; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #43c6ac,
+    #160ebe
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #43c6ac,
+    #160ebe
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  font-family: "Roboto Flex", sans-serif;
+  /* overflow: hidden; */ /* mosca con esta vaia bloquea el scroll */
+}
+
+.dt-buttons {
+  position: absolute !important;
+}
+
+.table thead {
+  background-color: #2b28d8;
+  color: aliceblue;
+}
+
+.table tbody {
+  background-color: #d1e0ff;
+  
+}
+
+.body-listauser {
+  background: #699dc2;
+}
+
+.lista-usuarios {
+  background: #e8f0f5;
+  background-repeat: no-repeat;
+}
+
+.eslogan {
+  font-family: "Smooch", sans-serif;
+  font-size: xx-large;
+}
+
+.card-header {
+  background: #bdc3c7; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #2c3e50,
+    #bdc3c7,
+    #2c3e50
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #2c3e50,
+    #bdc3c7,
+    #2c3e50
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.card-body {
+  background: #bdc3c7; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #2c3e50,
+    #bdc3c7,
+    #2c3e50
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #64696d,
+    #bdc3c7,
+    #64696d
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.form {
+  background: #bdc3c7; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #2c3e50,
+    #bdc3c7,
+    #2c3e50
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #64696d,
+    #bdc3c7,
+    #64696d
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+/* cuando cambies el color del fondo al form control cambia al form-select para que se vea uniforme y no se tengo un contraste */
+
+.form-control {
+  background: #e9edf0;
+}
+
+.form-select {
+  background: #e9edf0;
+}
+
+.index {
+  width: 100vw;
+  height: 100vh;
+}
+
+.masthead {
+  color: rgb(8, 7, 7);
+  min-height: 30rem;
+  width: 100%;
+  height: 100%;
+  padding-top: 4rem;
+  background: #e9e5f0; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #2ebf91,
+    #160ebe
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #2ebf91,
+    #160ebe
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  /* background-position: center center; */
+  /* background-repeat: no-repeat; */
+  /* background-size: cover; */
+}
+
+.masthead h1 {
+  font-size: 4rem;
+  margin: 0;
+  padding: 0;
+}
+
+@media (min-width: 925px) {
+  .masthead h1 {
+    font-size: 5.5rem;
+  }
+}
+
+.fprincipal {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  padding: 2px;
+  background-color: rgb(8, 4, 3);
+  color: white;
+}
+
+.lineahorizontal {
+  border-right: #7c827c;
+}

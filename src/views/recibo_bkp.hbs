@@ -1,0 +1,114 @@
+<div class="container text-center" style="background-color: #ffffff ; ">
+    <div class="row">
+        <div class="col">
+            <b class="fs-1 fw-bold">Concurso DISAVEN</b>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <b class="fs-1">RECIBO</b>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <b class="fs-3">Fecha del Concurso 21/12/2022</b>
+        </div>
+    </div>
+</div>
+
+
+<div class="container p-4 text-center" style="background-color: #ffcc00 ;">
+    <b class="fs-2">Numero de Ticket: {{datos.id}}</b>
+</div>
+</div>
+
+
+<div class="container" style="background-color: #ffffff;">
+    <div class="row ">
+        <div class="col ">
+            <p class="fw-bold text-start">Fecha del Ticket:</p>
+        </div>
+        <div class="col ">
+            <p class="fw-bold text-end">{{datos.creado}}</p>
+        </div>
+    </div>
+
+    {{!-- aqui va una linea --}}
+    <div class="lineahorizontal">
+    <hr>
+    </div>
+    <div class="container text-center">
+        <div class="row">
+            <div class="col">
+                <b class="fs-3">Nombre y Apellido</b>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <b class="fs-3">{{datos.nombrefull}}</b>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <p class="fw-bold text-start">Numero de Identificacion:</p>
+        </div>
+        <div class="col">
+            <p class="fw-bold text-end">{{datos.cedula}}</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <p class="fw-bold text-start ">Numero de contacto:</p>
+        </div>
+        <div class="col">
+            <p class="fw-bold text-end">{{datos.numcontacto}}</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <p class="fw-bold text-start">Email:</p>
+        </div>
+        <div class="col">
+            <p class="fw-bold text-end">{{datos.email}}</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <p class="fw-bold text-start">Pago:</p>
+        </div>
+        <div class="col">
+            <p class="fw-bold text-end">{{datos.monto}}</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <p class="fw-bold text-start">Metodo de pago:</p>
+        </div>
+        <div class="col">
+            <p class="fw-bold text-end">{{datos.mpago}}</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <p class="fw-bold text-start">Referencia:</p>
+        </div>
+        <div class="col">
+            <p class="fw-bold text-end">{{datos.ref}}</p>
+        </div>
+    </div>
+    <hr>
+    {{!-- aqui va una linea --}}
+    <div class="lineahorizontal"></div>
+
+    <div class="row">
+        <div class="col">
+            <div class="p-2">
+                <a href="/rventas" class="btn btn-secondary m-3">
+                    Rertorno
+                </a>
+            </div>
+        </div>
+    </div>
+
+</div>

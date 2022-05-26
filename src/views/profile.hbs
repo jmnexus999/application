@@ -1,0 +1,37 @@
+{{!-- usuario --}}
+<div class="container p-1">
+    <div class="row">
+        <div class="col-md-8 mx-auto">
+            <div class="card body text-center">
+                <div class="card-header text-center">
+                    <b class="fs-3">Menu {{user.tipo}}</b>
+                </div>
+                <div class="card-body">
+                    <div class="p-1">
+                        <b class="fs-3"> Bienvenido {{user.nombre}} {{user.apellido}} </b>
+                    </div>
+                    <div class="p-1">
+                        <b class="fs-3"> Usuario: {{user.usuario}} </b>
+                    </div>
+                    <hr>
+                    <div>
+                        <label for="">Seleccionar opcion</label>
+                    </div>
+                    <a href="/listauseru" class="btn btn-secondary m-2">
+                        <i class="bi bi-search"></i>
+                        Consultar usuarios
+                    </a>
+                    <a href="/consultau" class="btn btn-info m-2">
+                        <i class="bi bi-caret-right"></i>
+                        <i class="bi bi-journal-check"></i>
+                        Consulta Ventas
+                    </a>
+                    <a href="/usercp" class="btn btn-warning m-2">
+                        <i class="bi bi-key"></i>
+                        Cambiar clave
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

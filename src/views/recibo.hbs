@@ -1,0 +1,79 @@
+<div style="position: absolute; top: px; left: 3px; width: 388px; height: 550px;">
+    <div class="container text-center" style="background-color: #ffffff ; ">
+        <div class="row">
+            <div class="col">
+                <b class="fs-1 fw-bold">Concurso DISAVEN</b>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <b class="fs-1">RECIBO</b>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <b class="fs-3">Fecha del Concurso 21/12/2022</b>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container p-2 text-center" style="background-color: #ffcc00 ;">
+        <b class="fs-2">Numero de Ticket: {{datos.id}}</b>
+    </div>
+
+
+
+    <div class="container" style="background-color: #ffffff;">
+        <div>
+            <label for="">los tickets seran impresos de marena independiente</label>
+        </div>
+        <div class="row ">
+            <div class="col ">
+                <p class="text-start fw-light lh-1">Fecha del Ticket:</p>
+                <p class="text-start fw-light lh-1">Nombre:</p>
+                <p class="text-start fw-light lh-1">Identificacion:</p>
+                <p class="text-start fw-light lh-1">Numero de contacto:</p>
+                <p class="text-start fw-light lh-1">Email:</p>
+                <p class="text-start fw-light lh-1">Pago:</p>
+                <p class="text-start fw-light lh-1">Metodo de pago:</p>
+                <p class="text-start fw-light lh-1">Referencia:</p>
+            </div>
+            <div class="col ">
+                <p class="text-end fw-light lh-1">{{datos.creado}}</p>
+                <p class="text-end fw-light lh-1">{{datos.nombre}} {{datos.apellido}}</p>
+                <p class="text-end fw-light lh-1">{{datos.cedula}}</p>
+                <p class="text-end fw-light lh-1">{{datos.numcontacto}}</p>
+                <p class="text-end fw-light lh-1">{{datos.email}}</p>
+                <p class="text-end fw-light lh-1">{{datos.monto}}</p>
+                <p class="text-end fw-light lh-1">{{datos.mpago}}</p>
+                <p class="text-end fw-light lh-1">{{datos.ref}}</p>
+
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col">
+                <p class="fw-bold text-center lh-1">{{datos.ciudad}} - {{datos.pais}}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <p class="fw-bold text-center lh-1">{{datos.comentario}}</p>
+                <p class="text-center lh-1">- DEV NO VALIDO -</p>
+            </div>
+        </div>
+        <hr>
+
+
+        <div class="row">
+            <div class="col">
+                <div class="p-2">
+                    <a href="/rventas" class="btn btn-secondary m-3">
+                        Rertorno
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

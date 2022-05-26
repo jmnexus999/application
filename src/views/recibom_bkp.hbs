@@ -1,0 +1,137 @@
+<div class="container text-center" style="background-color: #ffffff ; ">
+    <div class="row">
+        <div class="col">
+            <b class="fs-1 fw-bold">Concurso DISAVEN</b>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <b class="fs-1">RECIBO</b>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <b class="fs-3">Fecha del Concurso 21/12/2022</b>
+        </div>
+    </div>
+</div>
+
+
+<div class="container text-center" style="background-color: #ffcc00 ;">
+    <label for="">Lote de Tickets comprados</label>
+    <div class="row row-cols-4 row-cols-sm-2 row-cols-md-4">
+        {{#each ticketv}}
+        <div class="col">
+            | {{this}} |
+
+
+        </div>
+        {{/each}}
+    </div>
+
+</div>
+
+</div>
+
+
+<div class="container" style="background-color: #ffffff;">
+    <div>
+        <label for="">los tickets seran impresos de marena independiente</label>
+    </div>
+    <div class="row ">
+        <div class="col ">
+            <p class="fw-bold text-start">Fecha del Ticket:</p>
+        </div>
+        <div class="col ">
+            <p class="fw-bold text-end">{{datos.creado}}</p>
+        </div>
+    </div>
+
+    {{!-- aqui va una linea --}}
+    <div>
+        <hr>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <p class="fw-bold text-start">Nombre:</p>
+        </div>
+        <div class="col">
+            <p class="fw-bold text-end">{{datos.nombre}} {{datos.apellido}}</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <p class="fw-bold text-start">Identificacion:</p>
+        </div>
+        <div class="col">
+            <p class="fw-bold text-end">{{datos.cedula}}</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <p class="fw-bold text-start ">Numero de contacto:</p>
+        </div>
+        <div class="col">
+            <p class="fw-bold text-end">{{datos.numcontacto}}</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <p class="fw-bold text-start">Email:</p>
+        </div>
+        <div class="col">
+            <p class="fw-bold text-end">{{datos.email}}</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <p class="fw-bold text-start">Pago:</p>
+        </div>
+        <div class="col">
+            <p class="fw-bold text-end">{{datos.monto}}</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <p class="fw-bold text-start">Metodo de pago:</p>
+        </div>
+        <div class="col">
+            <p class="fw-bold text-end">{{datos.mpago}}</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <p class="fw-bold text-start">Referencia:</p>
+        </div>
+        <div class="col">
+            <p class="fw-bold text-end">{{datos.ref}}</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <p class="fw-bold text-center">{{datos.ciudad}} - {{datos.pais}}</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <p class="fw-bold text-center">{{datos.comentario}}</p>
+        </div>
+    </div>
+    <hr>
+    <p class="text-center">DEV - NO VALIDO -</p>
+    <hr>
+    {{!-- aqui va una linea --}}
+    <div class="lineahorizontal"></div>
+
+    <div class="row">
+        <div class="col">
+            <div class="p-2">
+                <a href="/rventasm" class="btn btn-secondary m-3">
+                    Rertorno
+                </a>
+            </div>
+        </div>
+    </div>
+
+</div>
