@@ -12,15 +12,15 @@ const clave_v = "clave555";
 rutas.post("/rusuarios", isLoggedIn, async (req, res) => {
   // incluir la variable clave si se pretende utilizar el metodo de colocar una en el formulario
   const { usuario, nombre, apellido, tipo, subtipo } = req.body;
-  // const { clave_v } = req.body;
+  
   const nuser = {
-    usuario,
-    nombre,
-    apellido,
-    tipo,
-    subtipo,
+    usuario:usuario,
+    nombre:nombre,
+    apellido:apellido,
+    tipo:tipo,
+    subtipo:subtipo,
   };
-
+  
   // validar si el usuario a registrar ya existe en el sistema
   // validar go
   var go = true;
@@ -49,7 +49,7 @@ rutas.post("/rusuarios", isLoggedIn, async (req, res) => {
       })
     );
     res.redirect("/rusuarios");
-  } else if (tipo == "Usuario" || Tipo == "Administrador") {
+  } else if (tipo == "Usuario" || tipo == "Administrador") {
     nuser.subtipo = "N/A";
   } else if (usuario == "") {
     var go = false;
