@@ -181,6 +181,18 @@ consultas.get("/recibo/:id", async (req, res) => {
   res.render("recibo", { datos });
 });
 
+consultas.get("/recibotest/:id", async (req, res) => {
+  const { id } = req.params;
+
+  const drecibo = await cola.query("SELECT * FROM tickets WHERE id = ?", [id]);
+  // res.render("recibo", { datos: drecibo[0] });
+  const datos = drecibo[0];
+
+  // dando formato al timestamp que mariadb me lo transaforma en la consulta pero en un formato XXXXXL
+  datos.creado = date.format(datos.creado, "DD-MM-YYYY HH:mm");
+  res.json(datos);
+});
+
 consultas.get("/recibop/:id", async (req, res) => {
   const { id } = req.params;
 

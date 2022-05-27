@@ -17,7 +17,7 @@ rutasv.get("/rventas", isLoggedIn, (req, res) => {
 var go = true;
 rutasv.post("/rventas", isLoggedIn, async (req, res) => {
   const uid = req.session.passport.user;
-
+  
   let {
     ci,
     nombre,
@@ -32,6 +32,7 @@ rutasv.post("/rventas", isLoggedIn, async (req, res) => {
     monto,
   } = req.body;
   var go = true;
+  
   if (nombre == "") {
     var go = false;
     req.toastr.error(
@@ -258,6 +259,7 @@ rutasv.post("/rventasm", isLoggedIn, async (req, res) => {
     monto,
   } = req.body;
   var go = true;
+  
   if (nombre == "") {
     var go = false;
     req.toastr.error(
