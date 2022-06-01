@@ -7,6 +7,7 @@ const colors = require("colors");
 const { timeago } = require("../lib/handlebars");
 const date = require("date-and-time");
 // const { reset } = require("nodemon");
+const { emailsending, emailsendingm }  = require("./email");
 
 // registro dev ventas
 
@@ -17,7 +18,7 @@ rutasv.get("/rventas", isLoggedIn, (req, res) => {
 var go = true;
 rutasv.post("/rventas", isLoggedIn, async (req, res) => {
   const uid = req.session.passport.user;
-  
+
   let {
     ci,
     nombre,
@@ -32,7 +33,7 @@ rutasv.post("/rventas", isLoggedIn, async (req, res) => {
     monto,
   } = req.body;
   var go = true;
-  
+
   if (nombre == "") {
     var go = false;
     req.toastr.error(
@@ -186,7 +187,7 @@ rutasv.post("/rventas", isLoggedIn, async (req, res) => {
     ref: ref,
     monto: monto,
     id_promotor: uid,
-    subtipo:stipo,
+    subtipo: stipo,
   };
   if (go) {
     const registro = await cola.query("INSERT INTO tickets SET ?", [venta]);
@@ -212,6 +213,7 @@ rutasv.get("/dprecibo/:id", isLoggedIn, async (req, res) => {
 });
 
 // ten esto a la mano por si hay que registrar varios de un solo carajaso
+// Se implementa el envio de correo mientras se genera el recibo
 
 rutasv.post("/recibo/:id", async (req, res) => {
   const { id } = req.params;
@@ -222,6 +224,13 @@ rutasv.post("/recibo/:id", async (req, res) => {
 
   // dando formato al timestamp que mariadb me lo transaforma en la consulta pero en un formato XXXXXL
   datos.creado = date.format(datos.creado, "DD-MM-YYYY HH:mm");
+
+  // antes de cargar el recibo se procede a enviar el correo y aprovechar los datos del cliente para incluirlos en el email
+  
+  
+  emailsending(datos);
+
+  // y por ultimo se muestra el recibo
   res.render("recibo", { datos });
 });
 
@@ -233,12 +242,11 @@ rutasv.get("/rventasm", isLoggedIn, (req, res) => {
 });
 
 async function bpromotor(uid) {
-  
   const dato = await cola.query("SELECT * FROM usuarios WHERE id = ?", [uid]);
-  
-  var stipo = dato[0].subtipo
-  
-  return stipo
+
+  var stipo = dato[0].subtipo;
+
+  return stipo;
 }
 
 let pasalo = [];
@@ -259,7 +267,7 @@ rutasv.post("/rventasm", isLoggedIn, async (req, res) => {
     monto,
   } = req.body;
   var go = true;
-  
+
   if (nombre == "") {
     var go = false;
     req.toastr.error(
@@ -413,7 +421,7 @@ rutasv.post("/rventasm", isLoggedIn, async (req, res) => {
     ref: ref,
     monto: monto,
     id_promotor: uid,
-    subtipo:stipo,
+    subtipo: stipo,
   };
   // maniobra para duplicar los registros en caso de compra de varios ticket
 
@@ -472,7 +480,9 @@ rutasv.post("/recibom/:id", async (req, res) => {
   datos.creado = date.format(datos.creado, "DD-MM-YYYY HH:mm");
 
   ticketv = pasalo;
-  console.log("Tvendidos pal recibo:", pasalo);
+  
+  emailsendingm(datos,ticketv)
+
   res.render("recibom", { datos, ticketv });
 });
 
