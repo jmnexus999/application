@@ -13,7 +13,7 @@ module.exports = {
     const idc = 1;
     const consulta = await cola.query("SELECT * FROM correo WHERE id=?", [idc]);
     const cdata = consulta[0];
-    
+
     cdata.pass = await cryptr.decrypt(cdata.pass);
 
     contenHTML = `
@@ -676,12 +676,12 @@ module.exports = {
       }
     });
   },
-  async emailsendingm(datos,ticketv) {
+  async emailsendingm(datos, ticketv, totalv) {
     // se obtiene los datos de la cuenta de
     const idc = 1;
     const consulta = await cola.query("SELECT * FROM correo WHERE id=?", [idc]);
     const cdata = consulta[0];
-    
+
     cdata.pass = await cryptr.decrypt(cdata.pass);
 
     contenHTML = `
@@ -1225,28 +1225,36 @@ module.exports = {
                                   </tr>                          
                                   <tr>
                                       <td>
-                                      <h3>Pago:</h3>
+                                        <h3>Pago:</h3>
                                       </td>
                                       <td>
-                                      <h3 class="align-right">${datos.monto}</h3>
+                                        <h3 class="align-right">${datos.monto}</h3>
                                       </td>
                                   </tr>  
-                                  <tr>
-                                      <td>
-                                      <h3>Método de pago:</h3>
-                                      </td>
-                                      <td>
-                                      <h3 class="align-right">${datos.mpago}</h3>
-                                      </td>
-                                  </tr>
-                                  <tr>
-                                      <td>
-                                      <h3>Referencia:</h3>
-                                      </td>
-                                      <td>
-                                      <h3 class="align-right">${datos.ref}</h3>
-                                      </td>
-                                  </tr>                          
+                                    <tr>
+                                        <td>
+                                            <h3>Total venta:</h3>
+                                        </td>
+                                        <td>
+                                            <h3 class="align-right">${totalv}</h3>
+                                        </td>
+                                    </tr>  
+                                    <tr>
+                                        <td>
+                                            <h3>Método de pago:</h3>
+                                        </td>
+                                        <td>
+                                            <h3 class="align-right">${datos.mpago}</h3>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <h3>Referencia:</h3>
+                                        </td>
+                                        <td>
+                                            <h3 class="align-right">${datos.ref}</h3>
+                                        </td>
+                                    </tr>                          
   
                                   <hr> 
   

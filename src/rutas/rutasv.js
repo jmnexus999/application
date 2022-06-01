@@ -7,7 +7,7 @@ const colors = require("colors");
 const { timeago } = require("../lib/handlebars");
 const date = require("date-and-time");
 // const { reset } = require("nodemon");
-const { emailsending, emailsendingm }  = require("./email");
+const { emailsending, emailsendingm } = require("./email");
 
 // registro dev ventas
 
@@ -226,8 +226,7 @@ rutasv.post("/recibo/:id", async (req, res) => {
   datos.creado = date.format(datos.creado, "DD-MM-YYYY HH:mm");
 
   // antes de cargar el recibo se procede a enviar el correo y aprovechar los datos del cliente para incluirlos en el email
-  
-  
+
   emailsending(datos);
 
   // y por ultimo se muestra el recibo
@@ -250,6 +249,8 @@ async function bpromotor(uid) {
 }
 
 let pasalo = [];
+let grantotal = 0
+
 rutasv.post("/rventasm", isLoggedIn, async (req, res) => {
   const uid = req.session.passport.user;
 
@@ -423,6 +424,7 @@ rutasv.post("/rventasm", isLoggedIn, async (req, res) => {
     id_promotor: uid,
     subtipo: stipo,
   };
+
   // maniobra para duplicar los registros en caso de compra de varios ticket
 
   async function registralo() {
@@ -437,8 +439,11 @@ rutasv.post("/rventasm", isLoggedIn, async (req, res) => {
   if (go) {
     var ticketsv = await registralo(venta);
 
-    console.log("Primer Ticket registrado", ticketsv[0]);
-    console.log("Total Tickets vendidos", ticketsv);
+    
+    // cualculando el Total de la venta
+    grantotal = 0
+    grantotal = venta.monto * req.body.cantidad;
+    console.log(grantotal);
 
     pasalo = [];
     pasalo = ticketsv;
@@ -480,10 +485,10 @@ rutasv.post("/recibom/:id", async (req, res) => {
   datos.creado = date.format(datos.creado, "DD-MM-YYYY HH:mm");
 
   ticketv = pasalo;
-  
-  emailsendingm(datos,ticketv)
+  totalv = grantotal;
+  emailsendingm(datos, ticketv, totalv);
 
-  res.render("recibom", { datos, ticketv });
+  res.render("recibom", { datos, ticketv, totalv });
 });
 
 module.exports = rutasv;
