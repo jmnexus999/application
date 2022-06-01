@@ -152,7 +152,7 @@
                         "name": 'subtipo',
                     },
                     {
-                        defaultContent: "<div clase='text-center'><div clase='btn-group'><button type='button' class='btn btn-secondary btn-sm btnRecibo'><i class='bi bi-receipt'>Recibo</i></button></div></div>",
+                        defaultContent: "<div clase='d-grid gap-2 col-6 mx-auto'><button type='button' class='btn btn-outline-secondary btn-sm me-md-2 btnRecibo'><i class='bi bi-receipt'></i></button><button type='button' class='btn btn-outline-primary btn-sm btnReenviar'><i class='bi bi-envelope'></i></button></div>",
 
                     },
                     ],
@@ -191,6 +191,14 @@
                 // alert('Clicked row id: ' + id);
                 window.location.href = "/recibou/" + id
             });
+            $(document).on('click', '.btnReenviar', function () {
+
+                fila = $(this).closest('tr');
+                id = parseInt(fila.find('td:eq(0)').text());
+                // alert('Clicked row id: ' + id);
+                window.location.href = "/reenvioe/" + id
+            });
+
         </script>
     </body>
 </main>

@@ -5,6 +5,8 @@ const cola = require("../databases");
 const date = require("date-and-time");
 const { application } = require("express");
 
+const { emailsending } = require("./email");
+
 consultas.get("/listauserdt", async (req, res) => {
   const data = await cola.query("SELECT * FROM usuarios");
 
@@ -228,5 +230,35 @@ consultas.get("/reciboad/:id", async (req, res) => {
   datos.creado = date.format(datos.creado, "DD-MM-YYYY HH:mm");
   res.render("reciboad", { datos });
 });
+
+// Reenvio de correo al cliente papu 
+
+consultas.get("/reenvioe/:id", async (req, res) => {
+  const { id } = req.params;
+
+  const drecibo = await cola.query("SELECT * FROM tickets WHERE id = ?", [id]);
+  // res.render("recibo", { datos: drecibo[0] });
+  const datos = drecibo[0];
+
+  // dando formato al timestamp que mariadb me lo transaforma en la consulta pero en un formato XXXXXL
+  datos.creado = date.format(datos.creado, "DD-MM-YYYY HH:mm");
+  
+  emailsending(datos);
+
+  req.toastr.info(
+    "Correo del recibo reenviado al cliente",
+    (title = "Sistema"),
+    (options = {
+      timeOut: "1550",
+      closeButton: true,
+      progressBar: true,
+    })
+  );
+  
+  res.redirect("/consultau");
+
+});
+
+
 
 module.exports = consultas;
